@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section class="login-page" id="login-page">
+      <div class="login-container">
+        <h1>Admin Login</h1>
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Username"
+        />
+        <input
+          type="password"
+          name="password"
+          id="userpassword"
+          placeholder="Password"
+        />
+        <button id="loginbutton">Login</button>
+        <p class="error" id="loginError"></p>
+      </div>
+    </section>
+    <!-- -------------------------SECTION FOR DASHBOARD------------------------- -->
+    <section class="dashboard">
+      <div class="sidebar" id="sidebar">
+        <div class="sidebar-a">
+          <h2>Admin Panel</h2>
+          <span class="closes-btn" onclick="openSidebar()">✕</span>
+        </div>
+        <ul>
+          <li>Dashboard</li>
+          <li>Users</li>
+          <li id="log-out">Log Out</li>
+        </ul>
+      </div>
+      <div class="main">
+        <div class="topbar">
+          <button id="toggle-button" onclick="openSidebar()">☰</button>
+          <h3>Admin Dashboard</h3>
+        </div>
+        <div class="cards">
+          <div class="card">
+            <h4>Total Users</h4>
+            <p id="totalusers">0</p>
+          </div>
+          <div class="card">
+            <h4>Active Users</h4>
+            <p id="activeusers">0</p>
+          </div>
+        </div>
+        <div class="form">
+          <h3>Add/ Edit User</h3>
+          <div class="forminput">
+            <input type="hidden" id="editId" />
+            <input
+              type="text"
+              name="inputname"
+              id="inputname"
+              placeholder="Name"
+            />
+            <input
+              type="email"
+              name="inputemail"
+              id="inputemail"
+              placeholder="Email"
+            />
+            <button onclick="saveUser()">Save</button>
+          </div>
+          <p id="formError" style="color: rgb(153, 0, 0)"></p>
+        </div>
+        <div class="searchitem">
+          <input
+            type="text"
+            name="search"
+            id="search"
+            placeholder="Search Users"
+            onkeyup="searchUser()"
+          />
+        </div>
+        <!-- ---------------TABLE BOX------------------- -->
+        <div class="table-box">
+          <table border="1px">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="userTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <script src="script.js"></script>
+  </body>
+</html>
